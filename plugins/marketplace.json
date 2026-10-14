@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "channel": "beta",
+  "generatedAt": "2026-10-14",
+  "plugins": [
+    {
+      "id": "chaoxing",
+      "name": "学习通",
+      "version": "0.1.0",
+      "hostApiVersion": 2,
+      "description": "学习通作业汇总、分页与完成状态同步。",
+      "packagePath": "plugins/packages/chaoxing-0.1.0.zip",
+      "sha256": "d2fb95a1c99a77fc93e5f1a2dec3ae0092c393ef740a835f6339be6c91dda149",
+      "bytes": 2350
+    },
+    {
+      "id": "smartestu-muc",
+      "name": "数你最灵（中央民族大学）",
+      "version": "0.1.0",
+      "hostApiVersion": 2,
+      "description": "中央民族大学数你最灵的作业状态与截止时间读取。",
+      "packagePath": "plugins/packages/smartestu-muc-0.1.0.zip",
+      "sha256": "7b57aed5fcdbb5f0bee250683c2c85023e1f6a84d4ed9c09a8df663230df0f44",
+      "bytes": 3532
+    }
+  ]
+}
