@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "id": "chaoxing",
+  "pluginVersion": "0.1.1",
+  "name": "学习通",
+  "startUrl": "https://mooc1-api.chaoxing.com/mooc-ans/mooc2/work/all-task",
+  "allowedHosts": [
+    "chaoxing.com"
+  ],
+  "script": "read.js",
+  "sourceOrigin": "chaoxing",
+  "sourceKeyFormat": "newline-sha256",
+  "sourceScope": "学习通账户",
+  "legacyConnectionKey": "chaoxing",
+  "hostApiVersion": 3,
+  "autoLoginUrl": "https://passport2.chaoxing.com/login",
+  "autoLoginScript": "auto-login.js"
+}

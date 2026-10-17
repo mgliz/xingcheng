@@ -6,8 +6,9 @@
   if (location.pathname === '/login' || document.querySelector('input[type="password"]')) return { mode: 'login', url };
   if (params.get('view') === 'mine') {
     const account = body.match(/学号\s*([^\s]+)/);
-    if (!body.includes('中央民族大学') || !account) return { mode: 'unknown', url, message: '请确认已登录中央民族大学的学生账户。' };
-    return { mode: 'identity', url, accountId: '中央民族大学/' + account[1] };
+    const school = body.match(/学校\s*([\s\S]*?)\s*学号/);
+    if (!school || !school[1].trim() || school[1].trim().length > 200 || !account) return { mode: 'unknown', url, message: '请确认已登录适用的账户。' };
+    return { mode: 'identity', url, accountId: school[1].trim().replace(/\s+/g, ' ') + '/' + account[1] };
   }
   if (params.get('tab') !== 'assignments') return { mode: 'unknown', url, message: '请打开全部班级、全部状态的作业列表。' };
   if (!context.accountId) return { mode: 'unknown', url, message: '尚未确认当前账户，未读取作业。' };

@@ -1,8 +1,8 @@
 {
   "version": 1,
   "id": "smartestu-muc",
-  "pluginVersion": "0.1.0",
-  "name": "数你最灵（中央民族大学）",
+  "pluginVersion": "0.1.2",
+  "name": "数你最灵",
   "startUrl": "https://smartestu.cn/login",
   "syncUrl": "https://smartestu.cn/assignment?tab=assignments",
   "identityUrl": "https://smartestu.cn/assignment?view=mine",
@@ -10,6 +10,8 @@
     "smartestu.cn"
   ],
   "script": "read.js",
-  "loginScript": "login.js",
-  "hostApiVersion": 2
+  "hostApiVersion": 3,
+  "autoLoginUrl": "https://smartestu.cn/login",
+  "autoLoginScript": "auto-login.js",
+  "loginSchool": true
 }

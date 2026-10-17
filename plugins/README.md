@@ -4,12 +4,12 @@
 
 ## 官方插件
 
-由行程项目维护。目前为测试适配，安装需要支持插件接口第 2 版的 rc.5 新版。
+由行程项目维护。目前为测试适配。原 0.1.0 插件兼容 rc.5；自动登录修复版 0.1.1 需要插件接口第 3 版。新接口目录为 `marketplace-v3.json`，旧目录和旧包保留。
 
 | 插件 | 版本 | 说明 | 下载 |
 | --- | --- | --- | --- |
-| [学习通](official/chaoxing/README.md) | 0.1.0 | 作业读取、分页、完成状态同步 | [插件包](packages/chaoxing-0.1.0.zip) |
-| [数你最灵（中央民族大学）](official/smartestu-muc/README.md) | 0.1.0 | 账户隔离、作业状态与截止时间读取 | [插件包](packages/smartestu-muc-0.1.0.zip) |
+| [学习通](official/chaoxing/README.md) | 0.1.1 | 作业读取、完成状态同步、可选自动登录 | [插件包](packages/chaoxing-0.1.1.zip) |
+| [数你最灵](official/smartestu-muc/README.md) | 0.1.2 | 作业状态与截止时间读取、可选自动登录 | [插件包](packages/smartestu-muc-0.1.2.zip) |
 
 GitHub 与 AtomGit 提供相同的插件包和市场索引。行程内的“网页跟踪 → 官方插件市场”可安装并检查更新，GitHub 无法访问时使用 AtomGit 镜像。插件版本与软件版本分别维护，不依赖软件更新来修复网站适配。
 

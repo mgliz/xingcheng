@@ -5,6 +5,11 @@ import hashlib
 import json
 import re
 import zipfile
+import argparse
+
+arguments=argparse.ArgumentParser()
+arguments.add_argument('--catalog',default='marketplace.json',choices=['marketplace.json','marketplace-v3.json'])
+options=arguments.parse_args()
 
 root = Path(__file__).resolve().parent
 packages = root / "packages"
@@ -15,12 +20,16 @@ for folder in sorted((root / "official").iterdir()):
     if not source.exists():
         continue
     manifest = json.loads(source.read_text(encoding="utf-8-sig"))
+    if manifest.get('hostApiVersion',2)>2 and options.catalog=='marketplace.json':
+        raise ValueError('Interface 3 plugins require --catalog marketplace-v3.json; preserve the rc.5 catalog')
     pid, version = manifest["id"], manifest["pluginVersion"]
     if pid != folder.name or not re.fullmatch(r"[a-z][a-z0-9-]{1,59}", pid) or not re.fullmatch(r"\d+\.\d+\.\d+", version):
         raise ValueError("Invalid plugin identity/version")
     names = ["plugin.json", manifest["script"], "README.md"]
     if manifest.get("loginScript"):
         names.append(manifest["loginScript"])
+    if manifest.get("autoLoginScript"):
+        names.append(manifest["autoLoginScript"])
     if len(set(names)) != len(names) or any(Path(name).name != name for name in names):
         raise ValueError("Invalid package filenames")
     source_bytes = {name: (folder / name).read_bytes() for name in names}
@@ -49,5 +58,5 @@ for folder in sorted((root / "official").iterdir()):
                     "description": "网页任务读取与完成状态同步。", "packagePath": "plugins/packages/" + package.name,
                     "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)})
 catalog = {"schemaVersion": 1, "channel": "beta", "generatedAt": datetime.date.today().isoformat(), "plugins": entries}
-(root / "marketplace.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+(root / options.catalog).write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print("Built", len(entries), "plugin entries; existing versions preserved")

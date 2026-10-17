@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "channel": "beta",
+  "generatedAt": "2026-10-17",
+  "plugins": [
+    {
+      "id": "chaoxing",
+      "name": "学习通",
+      "version": "0.1.1",
+      "hostApiVersion": 3,
+      "description": "网页任务读取与完成状态同步。",
+      "packagePath": "plugins/packages/chaoxing-0.1.1.zip",
+      "sha256": "37b393fd01a1e1c77594278421d56f3904ee37223067693db898d4b9c0cf7f52",
+      "bytes": 3609
+    },
+    {
+      "id": "smartestu-muc",
+      "name": "数你最灵",
+      "version": "0.1.2",
+      "hostApiVersion": 3,
+      "description": "网页任务读取与完成状态同步。",
+      "packagePath": "plugins/packages/smartestu-muc-0.1.2.zip",
+      "sha256": "ad99ee823e6b9df5e0f925fc336f7e138ed2138b736becf485180b6e6990665c",
+      "bytes": 4513
+    }
+  ]
+}
