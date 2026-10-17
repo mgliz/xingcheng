@@ -10,9 +10,11 @@
           let target;try{target=new URL(row.getAttribute('data'),url);}catch{return null;}
           if(!(target.hostname==='chaoxing.com'||target.hostname.endsWith('.chaoxing.com')))return null;
           const query=target.searchParams,raw=text(row.querySelector('.stuStatus'));
-          const status=/打回|重做|重交/.test(raw)?'returned':/未提交|未交/.test(raw)?'unsubmitted':/已完成|已互评|已提交|待批阅|已批阅/.test(raw)?'submitted':'unknown';
-          return {id:query.get('workId')||'',courseId:query.get('courseId')||'',classId:query.get('classId')||'',accountId:query.get('cpi')||'',
-            title:text(row.querySelector('.right-content > p')),course:text(row.querySelector('.courseName')).replace(/^《|》$/g,''),
+          const peerReview=Array.from(row.querySelectorAll('.right-content .label')).some(label=>text(label)==='互评')||!!row.querySelector('.work-icon.icon-hp-gy');
+          const workId=query.get('workId')||'';
+          const status=/打回|重做|重交/.test(raw)?'returned':/未提交|未交|未互评|待互评/.test(raw)?'unsubmitted':/已完成|已互评|已提交|待批阅|已批阅/.test(raw)?'submitted':'unknown';
+          return {id:workId?(peerReview?workId+':peer-review':workId):'',courseId:query.get('courseId')||'',classId:query.get('classId')||'',accountId:query.get('cpi')||'',
+            title:text(row.querySelector('.right-content > p'))+(peerReview?'（互评）':''),course:text(row.querySelector('.courseName')).replace(/^《|》$/g,''),
             status,deadline:text(row.querySelector('.time')),url:location.origin+location.pathname};
         }).filter(Boolean);
         if(items.length===0&&!empty)return {mode:'unknown',url};

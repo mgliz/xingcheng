@@ -8,8 +8,8 @@
 
 | 插件 | 版本 | 说明 | 下载 |
 | --- | --- | --- | --- |
-| [学习通](official/chaoxing/README.md) | 0.1.1 | 作业读取、完成状态同步、可选自动登录 | [插件包](packages/chaoxing-0.1.1.zip) |
-| [数你最灵](official/smartestu-muc/README.md) | 0.1.2 | 作业状态与截止时间读取、可选自动登录 | [插件包](packages/smartestu-muc-0.1.2.zip) |
+| [学习通](official/chaoxing/README.md) | 0.1.2 | 作业与互评分开跟踪、完成状态同步、可选自动登录 | [插件包](packages/chaoxing-0.1.2.zip) |
+| [数你最灵](official/smartestu-muc/README.md) | 0.1.4 | 手机与 PC 布局读取、可选自动登录 | [插件包](packages/smartestu-muc-0.1.4.zip) |
 
 GitHub 与 AtomGit 提供相同的插件包和市场索引。行程内的“网页跟踪 → 官方插件市场”可安装并检查更新，GitHub 无法访问时使用 AtomGit 镜像。插件版本与软件版本分别维护，不依赖软件更新来修复网站适配。
 

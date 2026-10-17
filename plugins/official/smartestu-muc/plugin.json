@@ -1,7 +1,7 @@
 {
   "version": 1,
   "id": "smartestu-muc",
-  "pluginVersion": "0.1.2",
+  "pluginVersion": "0.1.4",
   "name": "数你最灵",
   "startUrl": "https://smartestu.cn/login",
   "syncUrl": "https://smartestu.cn/assignment?tab=assignments",
